@@ -137,7 +137,6 @@
         }
         .profile-link:hover { color: #000; border-bottom-color: #000; }
 
-        /* Услуги */
         .services { padding: 4rem 0; background: var(--light-bg); }
         .service-card {
             background: var(--white);
@@ -146,7 +145,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #eee;
             position: relative;
-            min-height: 340px;
+            min-height: 360px;
             display: flex;
             flex-direction: column;
         }
@@ -195,16 +194,48 @@
             transition: 0.3s;
         }
         .back-btn:hover { background: var(--accent); color: #000; }
-        .works-grid img {
+
+        /* Слайдер */
+        .works-slider {
+            position: relative;
             width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
+            overflow: hidden;
+            border-radius: 10px;
         }
-        .works-grid img:hover { transform: scale(1.03); }
-        .work-caption { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+        .works-slider img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: none;
+            transition: opacity 0.4s;
+        }
+        .works-slider img.active {
+            display: block;
+        }
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.8rem;
+        }
+        .slider-controls button {
+            background: var(--accent);
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-controls button:hover {
+            background: var(--primary);
+            color: var(--accent);
+        }
 
         .advantages { padding: 4rem 0; background: var(--white); }
         .advantage-box { text-align: center; padding: 1.5rem; }
@@ -249,7 +280,7 @@
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 1.8rem; }
             .contact-info a.phone-link { font-size: 1.8rem; }
-            .works-grid img { height: 100px; }
+            .works-slider img { height: 160px; }
         }
     </style>
 </head>
@@ -296,7 +327,7 @@
     <div class="container">
         <h2 class="section-title">Мои услуги</h2>
         <div class="row g-4" id="serviceCards">
-            <!-- Карточка 1: Юридические -->
+            <!-- Карточка 1: Юридические (с вашими фото) -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -307,18 +338,19 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Снятие+ареста" alt=""><div class="work-caption">Снятие ареста</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=МФЦ" alt=""><div class="work-caption">Подача в МФЦ</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=ГИБДД" alt=""><div class="work-caption">ГИБДД</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <!-- Замените src на ваши сконвертированные JPG -->
+                            <img src="photo1.jpg" class="active" alt="Юридическое поручение 1">
+                            <img src="photo2.jpg" alt="Юридическое поручение 2">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Карточка 2: Проверки -->
+            <!-- Карточка 2 -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -329,18 +361,19 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" alt=""><div class="work-caption">Осмотр авто</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt=""><div class="work-caption">Осмотр квартиры</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt=""><div class="work-caption">Проверка фирмы</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" class="active" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt="">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Карточка 3: Выкуп и доставка -->
+            <!-- Карточка 3 -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -351,18 +384,19 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" alt=""><div class="work-caption">Выкуп с Авито</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt=""><div class="work-caption">Доставка по городу</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt=""><div class="work-caption">Отправка посылки</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" class="active" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt="">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Карточка 4: Личные поручения -->
+            <!-- Карточка 4 -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -373,18 +407,19 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" alt=""><div class="work-caption">Осмотр жилья</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt=""><div class="work-caption">Получение документов</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt=""><div class="work-caption">Фото/видео</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" class="active" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt="">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Карточка 5: Автоуслуги -->
+            <!-- Карточка 5 -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -395,18 +430,19 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" alt=""><div class="work-caption">Запуск с бустера</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt=""><div class="work-caption">Помощь на дороге</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt=""><div class="work-caption">Встреча гостей</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" class="active" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt="">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Карточка 6: Бытовые перевозки -->
+            <!-- Карточка 6 -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -417,13 +453,14 @@
                     </div>
                     <div class="service-works">
                         <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <h5>Примеры работ</h5>
-                        <div class="works-grid">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" alt=""><div class="work-caption">Перевозка цветов</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt=""><div class="work-caption">Стройматериалы</div></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt=""><div class="work-caption">Крупный груз</div></div>
-                            </div>
+                        <div class="works-slider">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" class="active" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt="">
+                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt="">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -487,9 +524,36 @@
 
 <script>
     (function() {
-        const cards = document.querySelectorAll('.service-card');
-        
-        // Открыть примеры работ
+        const sliders = document.querySelectorAll('.works-slider');
+        sliders.forEach(slider => {
+            const images = slider.querySelectorAll('img');
+            const prevBtn = slider.parentElement.querySelector('.prev-slide');
+            const nextBtn = slider.parentElement.querySelector('.next-slide');
+            let current = 0;
+            function showSlide(index) {
+                images.forEach((img, i) => img.classList.remove('active'));
+                images[index].classList.add('active');
+            }
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                current = (current - 1 + images.length) % images.length;
+                showSlide(current);
+            });
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                current = (current + 1) % images.length;
+                showSlide(current);
+            });
+            const card = slider.closest('.service-card');
+            const observer = new MutationObserver(() => {
+                if (card.classList.contains('works-visible')) {
+                    current = 0;
+                    showSlide(0);
+                }
+            });
+            observer.observe(card, { attributes: true, attributeFilter: ['class'] });
+        });
+
         document.querySelector('#serviceCards').addEventListener('click', function(e) {
             const expandBtn = e.target.closest('.expand-hint');
             if (expandBtn) {
@@ -503,10 +567,9 @@
             }
         });
 
-        // Закрыть при клике вне карточек
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.service-card')) {
-                cards.forEach(c => c.classList.remove('works-visible'));
+                document.querySelectorAll('.service-card').forEach(c => c.classList.remove('works-visible'));
             }
         });
     })();
