@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свой человек в Ульяновске — личный помощник Вадим</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e1e1e;
+            --accent: #f2c40f;
+            --accent-hover: #d4a90e;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: var(--primary);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+        .navbar-brand span { color: var(--accent); }
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .profile-avatar:hover { border-color: #fff; opacity: 0.9; }
+        .navbar .phone-number {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .navbar .phone-number:hover { color: var(--accent); }
+        .hero {
+            background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200') center/cover no-repeat;
+            background-blend-mode: overlay;
+            color: var(--white);
+            padding: 5rem 0 4rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .hero h1 .city { color: var(--accent); }
+        .hero p { font-size: 1.2rem; font-weight: 400; max-width: 700px; margin: 0 auto 2rem; }
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-accent:hover { background-color: var(--accent-hover); color: #000; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(242,196,15,0.4); }
+        .section-title {
+            font-weight: 700;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.8rem auto 0;
+        }
+        .profile-reputation { padding: 3rem 0; background: var(--light-bg); }
+        .profile-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            max-width: 450px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+        .profile-card:hover { transform: translateY(-5px); }
+        .profile-card .avatar-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent);
+        }
+        .profile-card h3 { font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; }
+        .stars { color: var(--accent); font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .rating-value { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
+        .review-count { font-size: 1rem; color: #555; margin-bottom: 1.2rem; }
+        .profile-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent);
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .profile-link:hover { color: #000; border-bottom-color: #000; }
+
+        /* Услуги */
+        .services { padding: 4rem 0; background: var(--light-bg); }
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            position: relative;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--accent); }
+        .service-main, .service-works {
+            padding: 2rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .service-works { display: none; }
+        .service-card.works-visible .service-main { display: none; }
+        .service-card.works-visible .service-works { display: flex; }
+
+        .service-icon { font-size: 2.8rem; color: var(--accent); margin-bottom: 1.2rem; }
+        .service-card h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .service-card p { color: #555; font-size: 0.95rem; margin-bottom: 1.2rem; white-space: pre-line; }
+        .expand-hint {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            user-select: none;
+            border-top: 1px dashed #ddd;
+            padding-top: 0.8rem;
+        }
+        .expand-hint i { transition: transform 0.3s; }
+
+        .back-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            align-self: center;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: var(--accent); color: #000; }
+        .works-grid img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+        .works-grid img:hover { transform: scale(1.03); }
+        .work-caption { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+
+        .advantages { padding: 4rem 0; background: var(--white); }
+        .advantage-box { text-align: center; padding: 1.5rem; }
+        .advantage-box .icon-circle {
+            width: 80px; height: 80px; background: var(--accent); color: var(--primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; margin: 0 auto 1.2rem; font-weight: bold;
+        }
+        .advantage-box h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .advantage-box p { color: #555; font-size: 0.95rem; }
+
+        .contacts { padding: 4rem 0; background: var(--primary); color: var(--white); }
+        .contacts .section-title { color: var(--white); }
+        .contact-info a.phone-link {
+            color: var(--accent); font-size: 2.2rem; font-weight: 700;
+            text-decoration: none; transition: 0.3s; display: block; margin: 1rem 0;
+        }
+        .contact-info a.phone-link:hover { color: #fff; }
+        .max-btn {
+            background: var(--accent); color: var(--primary); font-weight: 700;
+            padding: 0.9rem 2.5rem; border-radius: 50px; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.8rem; transition: 0.3s;
+            font-size: 1.1rem; margin-top: 1rem;
+        }
+        .max-btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
+        .max-icon {
+            background: var(--primary); color: var(--accent); font-weight: 800;
+            width: 36px; height: 36px; border-radius: 10px; display: inline-flex;
+            align-items: center; justify-content: center; font-size: 1rem;
+        }
+        .scroll-top {
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+            background: var(--accent); color: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
+            z-index: 999; opacity: 0.8;
+        }
+        .scroll-top:hover { opacity: 1; transform: translateY(-3px); }
+        footer { background: #111; color: #aaa; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .contact-info a.phone-link { font-size: 1.8rem; }
+            .works-grid img { height: 100px; }
+        }
+    </style>
+</head>
+<body id="top">
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container d-flex align-items-center">
+        <a href="https://www.avito.ru/brands/i187964321" target="_blank" class="me-3" title="Мой профиль на Авито">
+            <img src="Снимок экран.png" alt="Профиль" class="profile-avatar">
+        </a>
+        <a class="navbar-brand" href="#">СВОЙ <span>ЧЕЛОВЕК</span></a>
+        <a href="tel:+79084331011" class="phone-number ms-auto">
+            <i class="fas fa-phone-alt me-2"></i>+7 (908) 433-10-11
+        </a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Свой человек <br> <span class="city">в Ульяновске</span></h1>
+        <p>Личный помощник для сложных и простых задач. Я рядом, когда вы далеко.</p>
+        <a href="#contacts" class="btn btn-accent">Связаться сейчас</a>
+    </div>
+</section>
+
+<section class="profile-reputation">
+    <div class="container">
+        <div class="profile-card">
+            <img src="Снимок экран.png" alt="Вадим" class="avatar-icon">
+            <h3>Вадим</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="rating-value">Рейтинг 5.0 на Авито</div>
+            <div class="review-count">более 400 отзывов</div>
+            <a href="https://www.avito.ru/brands/i187964321" target="_blank" class="profile-link">
+                Посмотреть все отзывы <i class="fas fa-external-link-alt ms-1"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Мои услуги</h2>
+        <div class="row g-4" id="serviceCards">
+            <!-- Карточка 1: Юридические -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                        <h5>Юридические и официальные поручения</h5>
+                        <p>Взаимодействие с судебными приставами (снятие арестов с авто)<br>Работа с ГИБДД, МФЦ, налоговой</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Снятие+ареста" alt=""><div class="work-caption">Снятие ареста</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=МФЦ" alt=""><div class="work-caption">Подача в МФЦ</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=ГИБДД" alt=""><div class="work-caption">ГИБДД</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 2: Проверки -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-search"></i></div>
+                        <h5>Проверки и экспертиза</h5>
+                        <p>Осмотр недвижимости и автомобилей перед покупкой<br>Проверка контрагентов и компаний<br>Контроль качества товаров и работ</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" alt=""><div class="work-caption">Осмотр авто</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt=""><div class="work-caption">Осмотр квартиры</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt=""><div class="work-caption">Проверка фирмы</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 3: Выкуп и доставка -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-box-open"></i></div>
+                        <h5>Выкуп и доставка</h5>
+                        <p>Выкуп товаров с Авито и других площадок<br>Курьерская доставка по городу<br>Отправка посылок в другие города</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" alt=""><div class="work-caption">Выкуп с Авито</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt=""><div class="work-caption">Доставка по городу</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt=""><div class="work-caption">Отправка посылки</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 4: Личные поручения -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-user-check"></i></div>
+                        <h5>Личные поручения</h5>
+                        <p>Осмотр квартиры, дома, офиса перед арендой<br>Осмотр машины перед покупкой (выезд по городу)<br>Забрать документы, ключи, мелкий груз<br>Проверить помещение, сделать фото/видео по заданию</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" alt=""><div class="work-caption">Осмотр жилья</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt=""><div class="work-caption">Получение документов</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt=""><div class="work-caption">Фото/видео</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 5: Автоуслуги -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-car-battery"></i></div>
+                        <h5>Автоуслуги</h5>
+                        <p>Запуск автомобиля с бустера<br>Помощь на дороге, встреча в аэропорту, поездки</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" alt=""><div class="work-caption">Запуск с бустера</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt=""><div class="work-caption">Помощь на дороге</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt=""><div class="work-caption">Встреча гостей</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 6: Бытовые перевозки -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-main">
+                        <div class="service-icon"><i class="fas fa-truck"></i></div>
+                        <h5>Бытовые перевозки</h5>
+                        <p>Цветы, продукты, стройматериалы, инструмент, крупногабарит. Всё, что входит в мою машину — перевезу чётко и в срок.</p>
+                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="service-works">
+                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
+                        <h5>Примеры работ</h5>
+                        <div class="works-grid">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" alt=""><div class="work-caption">Перевозка цветов</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt=""><div class="work-caption">Стройматериалы</div></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt=""><div class="work-caption">Крупный груз</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="advantages">
+    <div class="container">
+        <h2 class="section-title">Почему выбирают меня</h2>
+        <div class="row g-4">
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+                    <h5>Надёжность</h5>
+                    <p>Ответственность и конфиденциальность во всех делах</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-bolt"></i></div>
+                    <h5>Скорость</h5>
+                    <p>Большинство задач выполняю день-в-день</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h5>Доступно</h5>
+                    <p>Разумные цены, работа по договорённости</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contacts" id="contacts">
+    <div class="container text-center">
+        <h2 class="section-title">Свяжитесь со мной</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt me-2"></i>Ульяновск, все районы</p>
+            <a href="tel:+79084331011" class="phone-link">+7 (908) 433-10-11</a>
+            <p>Звоните с 8:00 до 22:00</p>
+            <a href="https://max.ru/u/f9LHodD0cOIZZcrAE04zfVIFSyz5eSfEhwj8LQz48tD6l2BkQQ2ylkgTxUo" target="_blank" class="max-btn">
+                <span class="max-icon">MAX</span> Написать в MAX
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p class="mb-0">© 2025 «Свой человек в Ульяновске» — личный помощник Вадим. Все права защищены.</p>
+    </div>
+</footer>
+
+<div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<script>
+    (function() {
+        const cards = document.querySelectorAll('.service-card');
+        
+        // Открыть примеры работ
+        document.querySelector('#serviceCards').addEventListener('click', function(e) {
+            const expandBtn = e.target.closest('.expand-hint');
+            if (expandBtn) {
+                const card = expandBtn.closest('.service-card');
+                card.classList.add('works-visible');
+            }
+            const backBtn = e.target.closest('.back-btn');
+            if (backBtn) {
+                const card = backBtn.closest('.service-card');
+                card.classList.remove('works-visible');
+            }
+        });
+
+        // Закрыть при клике вне карточек
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.service-card')) {
+                cards.forEach(c => c.classList.remove('works-visible'));
+            }
+        });
+    })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
