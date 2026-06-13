@@ -160,32 +160,25 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #eee;
-            position: relative;
-            min-height: 360px;
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
         .service-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--accent); }
-        .service-main, .service-works {
+        .service-main {
             padding: 2rem 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             text-align: center;
         }
-        .service-works { display: none; }
-        .service-card.works-visible .service-main { display: none; }
-        .service-card.works-visible .service-works { display: flex; }
-
         .service-icon { font-size: 2.8rem; color: var(--accent); margin-bottom: 1.2rem; }
         .service-card h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem; }
-        .service-card p { color: #555; font-size: 0.95rem; margin-bottom: 1.2rem; white-space: pre-line; }
+        .service-card p { color: #555; font-size: 0.95rem; margin-bottom: 1.2rem; white-space: pre-line; flex: 1; }
         .expand-hint {
             color: var(--accent);
             font-weight: 600;
             font-size: 0.9rem;
-            margin-top: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,63 +187,28 @@
             user-select: none;
             border-top: 1px dashed #ddd;
             padding-top: 0.8rem;
+            margin-top: 0.5rem;
         }
         .expand-hint i { transition: transform 0.3s; }
-
-        .back-btn {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.4rem 1rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-bottom: 1rem;
-            align-self: center;
-            transition: 0.3s;
-        }
-        .back-btn:hover { background: var(--accent); color: #000; }
-
-        .works-slider {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .works-slider img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+        .works-row {
             display: none;
-            transition: opacity 0.4s;
+            margin-top: 1rem;
         }
-        .works-slider img.active {
+        .service-card.expanded .works-row {
             display: block;
         }
-        .slider-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.8rem;
+        .service-card.expanded .expand-hint i {
+            transform: rotate(180deg);
         }
-        .slider-controls button {
-            background: var(--accent);
-            border: none;
-            color: var(--primary);
-            font-size: 1.2rem;
-            border-radius: 50%;
-            width: 38px;
-            height: 38px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .works-row img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: transform 0.2s;
         }
-        .slider-controls button:hover {
-            background: var(--primary);
-            color: var(--accent);
-        }
+        .works-row img:hover { transform: scale(1.02); }
 
         .advantages { padding: 4rem 0; background: var(--white); }
         .advantage-box { text-align: center; padding: 1.5rem; }
@@ -295,7 +253,7 @@
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 1.8rem; }
             .contact-info a.phone-link { font-size: 1.8rem; }
-            .works-slider img { height: 160px; }
+            .works-row img { height: 100px; }
         }
     </style>
 </head>
@@ -356,22 +314,17 @@
                         <h5>Юридические и официальные поручения</h5>
                         <p>Взаимодействие с судебными приставами (снятие арестов с авто)<br>Работа с ГИБДД, МФЦ, налоговой</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="photo1.jpg" class="active" alt="Юридическое поручение 1">
-                            <img src="photo2.jpg" alt="Юридическое поручение 2">
-                            <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Юридическое поручение 3">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="photo1.jpg" alt=""></div>
+                                <div class="col-4"><img src="photo2.jpg" alt=""></div>
+                                <div class="col-4"><img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Остальные карточки без изменений -->
+            <!-- Остальные карточки с заглушками (позже замените на свои фото) -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-main">
@@ -379,17 +332,12 @@
                         <h5>Проверки и экспертиза</h5>
                         <p>Осмотр недвижимости и автомобилей перед покупкой<br>Проверка контрагентов и компаний<br>Контроль качества товаров и работ</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" class="active" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt="">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -401,17 +349,12 @@
                         <h5>Выкуп и доставка</h5>
                         <p>Выкуп товаров с Авито и других площадок<br>Курьерская доставка по городу<br>Отправка посылок в другие города</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" class="active" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt="">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -423,17 +366,12 @@
                         <h5>Личные поручения</h5>
                         <p>Осмотр квартиры, дома, офиса перед арендой<br>Осмотр машины перед покупкой (выезд по городу)<br>Забрать документы, ключи, мелкий груз<br>Проверить помещение, сделать фото/видео по заданию</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" class="active" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt="">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -445,17 +383,12 @@
                         <h5>Автоуслуги</h5>
                         <p>Запуск автомобиля с бустера<br>Помощь на дороге, встреча в аэропорту, поездки</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" class="active" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt="">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -467,17 +400,12 @@
                         <h5>Бытовые перевозки</h5>
                         <p>Цветы, продукты, стройматериалы, инструмент, крупногабарит. Всё, что входит в мою машину — перевезу чётко и в срок.</p>
                         <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="service-works">
-                        <button class="back-btn"><i class="fas fa-arrow-left me-1"></i> Назад к услуге</button>
-                        <div class="works-slider">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" class="active" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt="">
-                            <img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt="">
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="works-row">
+                            <div class="row g-2">
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt=""></div>
+                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -541,52 +469,20 @@
 
 <script>
     (function() {
-        const sliders = document.querySelectorAll('.works-slider');
-        sliders.forEach(slider => {
-            const images = slider.querySelectorAll('img');
-            const prevBtn = slider.parentElement.querySelector('.prev-slide');
-            const nextBtn = slider.parentElement.querySelector('.next-slide');
-            let current = 0;
-            function showSlide(index) {
-                images.forEach((img, i) => img.classList.remove('active'));
-                images[index].classList.add('active');
-            }
-            prevBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                current = (current - 1 + images.length) % images.length;
-                showSlide(current);
-            });
-            nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                current = (current + 1) % images.length;
-                showSlide(current);
-            });
-            const card = slider.closest('.service-card');
-            const observer = new MutationObserver(() => {
-                if (card.classList.contains('works-visible')) {
-                    current = 0;
-                    showSlide(0);
-                }
-            });
-            observer.observe(card, { attributes: true, attributeFilter: ['class'] });
-        });
-
-        document.querySelector('#serviceCards').addEventListener('click', function(e) {
-            const expandBtn = e.target.closest('.expand-hint');
-            if (expandBtn) {
-                const card = expandBtn.closest('.service-card');
-                card.classList.add('works-visible');
-            }
-            const backBtn = e.target.closest('.back-btn');
-            if (backBtn) {
-                const card = backBtn.closest('.service-card');
-                card.classList.remove('works-visible');
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach(card => {
+            const hint = card.querySelector('.expand-hint');
+            if (hint) {
+                hint.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    card.classList.toggle('expanded');
+                });
             }
         });
 
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.service-card')) {
-                document.querySelectorAll('.service-card').forEach(c => c.classList.remove('works-visible'));
+                cards.forEach(c => c.classList.remove('expanded'));
             }
         });
     })();
