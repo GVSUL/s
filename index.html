@@ -15,237 +15,81 @@
             --light-bg: #f8f9fa;
             --white: #ffffff;
         }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            scroll-behavior: smooth;
-        }
-        .navbar {
-            background-color: var(--primary);
-            padding: 0.8rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--white) !important;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            text-decoration: none;
-        }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; scroll-behavior: smooth; }
+        .navbar { background-color: var(--primary); padding: 0.8rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--white) !important; letter-spacing: 1px; display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
         .navbar-brand span { color: var(--accent); }
-        .profile-avatar-wrapper {
-            display: inline-block;
-            overflow: hidden;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            border: 2px solid var(--accent);
-            transition: 0.3s;
-            text-decoration: none;
-        }
+        .profile-avatar-wrapper { display: inline-block; overflow: hidden; border-radius: 50%; width: 45px; height: 45px; border: 2px solid var(--accent); transition: 0.3s; text-decoration: none; }
         .profile-avatar-wrapper:hover { border-color: #fff; }
-        .profile-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.15);
-            display: block;
-        }
-        .navbar .phone-number {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+        .profile-avatar { width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); display: block; }
+        .navbar .phone-number { color: var(--white); font-weight: 600; font-size: 1.1rem; text-decoration: none; transition: 0.3s; }
         .navbar .phone-number:hover { color: var(--accent); }
+
+        /* Hero с новым фото */
         .hero {
-            background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%), 
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(30,30,30,0.85) 0%, rgba(30,30,30,0.7) 100%),
+                        url('Screenshot_20260509_125842.jpg') center/cover no-repeat;
             background-blend-mode: overlay;
             color: var(--white);
             padding: 5rem 0 4rem;
             text-align: center;
         }
-        .hero h1 {
-            font-weight: 800;
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
+        .hero h1 { font-weight: 800; font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
         .hero h1 .city { color: var(--accent); }
         .hero p { font-size: 1.2rem; font-weight: 400; max-width: 700px; margin: 0 auto 2rem; }
-        .btn-accent {
-            background-color: var(--accent);
-            color: var(--primary);
-            font-weight: 700;
-            padding: 0.8rem 2.5rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            transition: all 0.3s;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
+        .btn-accent { background-color: var(--accent); color: var(--primary); font-weight: 700; padding: 0.8rem 2.5rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; border: none; transition: all 0.3s; font-size: 1rem; text-decoration: none; display: inline-block; }
         .btn-accent:hover { background-color: var(--accent-hover); color: #000; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(242,196,15,0.4); }
-        .section-title {
-            font-weight: 700;
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            color: var(--primary);
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin: 0.8rem auto 0;
-        }
+        .section-title { font-weight: 700; font-size: 2.2rem; text-align: center; margin-bottom: 3rem; position: relative; color: var(--primary); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 0.8rem auto 0; }
         .profile-reputation { padding: 3rem 0; background: var(--light-bg); }
-        .profile-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            max-width: 450px;
-            margin: 0 auto;
-            text-align: center;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
-        }
+        .profile-card { background: var(--white); border-radius: 20px; padding: 2.5rem 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.08); max-width: 450px; margin: 0 auto; text-align: center; border: 1px solid #eee; transition: transform 0.3s; }
         .profile-card:hover { transform: translateY(-5px); }
-        .avatar-icon-wrapper {
-            display: inline-block;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--accent);
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-        .avatar-icon {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.15);
-            display: block;
-        }
+        .avatar-icon-wrapper { display: inline-block; width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent); overflow: hidden; margin-bottom: 1rem; }
+        .avatar-icon { width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); display: block; }
         .profile-card h3 { font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; }
         .stars { color: var(--accent); font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
         .rating-value { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
         .review-count { font-size: 1rem; color: #555; margin-bottom: 1.2rem; }
-        .profile-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 2px solid var(--accent);
-            transition: 0.3s;
-            display: inline-block;
-        }
+        .profile-link { color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); transition: 0.3s; display: inline-block; }
         .profile-link:hover { color: #000; border-bottom-color: #000; }
 
-        .services { padding: 4rem 0; background: var(--light-bg); }
-        .service-card {
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #eee;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+        .services { padding: 4rem 0 2rem; background: var(--light-bg); }
+        .service-card { background: var(--white); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; height: 100%; display: flex; flex-direction: column; transition: all 0.3s; }
         .service-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--accent); }
-        .service-main {
-            padding: 2rem 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
         .service-icon { font-size: 2.8rem; color: var(--accent); margin-bottom: 1.2rem; }
         .service-card h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem; }
-        .service-card p { color: #555; font-size: 0.95rem; margin-bottom: 1.2rem; white-space: pre-line; flex: 1; }
-        .expand-hint {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            cursor: pointer;
-            user-select: none;
-            border-top: 1px dashed #ddd;
-            padding-top: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        .expand-hint i { transition: transform 0.3s; }
-        .works-row {
-            display: none;
-            margin-top: 1rem;
-        }
-        .service-card.expanded .works-row {
-            display: block;
-        }
-        .service-card.expanded .expand-hint i {
-            transform: rotate(180deg);
-        }
-        .works-row img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: transform 0.2s;
-        }
-        .works-row img:hover { transform: scale(1.02); }
+        .service-card p { color: #555; font-size: 0.95rem; margin-bottom: 0; white-space: pre-line; flex: 1; }
 
-        .advantages { padding: 4rem 0; background: var(--white); }
+        .advantages { padding: 4rem 0; background: var(--light-bg); }
         .advantage-box { text-align: center; padding: 1.5rem; }
-        .advantage-box .icon-circle {
-            width: 80px; height: 80px; background: var(--accent); color: var(--primary);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2.2rem; margin: 0 auto 1.2rem; font-weight: bold;
-        }
+        .advantage-box .icon-circle { width: 80px; height: 80px; background: var(--accent); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.2rem; font-weight: bold; }
         .advantage-box h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
         .advantage-box p { color: #555; font-size: 0.95rem; }
 
+        /* ОТЗЫВЫ */
+        .reviews-section { padding: 4rem 0; background: var(--white); }
+        .review-slider { max-width: 900px; margin: 0 auto; }
+        .review-slide { display: none; }
+        .review-slide.active { display: block; }
+        .review-content { background: var(--white); border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; overflow: hidden; }
+        .review-text-col { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+        .review-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+        .review-quote { font-size: 1rem; color: #555; line-height: 1.6; margin-bottom: 1rem; font-style: italic; }
+        .review-author { font-weight: 700; color: var(--primary); }
+        .review-photo-col { padding: 0; }
+        .review-photo-col img { width: 100%; height: 250px; object-fit: cover; }
+        .slider-controls { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+        .slider-controls button { background: var(--accent); border: none; color: var(--primary); font-size: 1.2rem; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .slider-controls button:hover { background: var(--primary); color: var(--accent); }
+
         .contacts { padding: 4rem 0; background: var(--primary); color: var(--white); }
         .contacts .section-title { color: var(--white); }
-        .contact-info a.phone-link {
-            color: var(--accent); font-size: 2.2rem; font-weight: 700;
-            text-decoration: none; transition: 0.3s; display: block; margin: 1rem 0;
-        }
+        .contact-info a.phone-link { color: var(--accent); font-size: 2.2rem; font-weight: 700; text-decoration: none; transition: 0.3s; display: block; margin: 1rem 0; }
         .contact-info a.phone-link:hover { color: #fff; }
-        .max-btn {
-            background: var(--accent); color: var(--primary); font-weight: 700;
-            padding: 0.9rem 2.5rem; border-radius: 50px; text-decoration: none;
-            display: inline-flex; align-items: center; gap: 0.8rem; transition: 0.3s;
-            font-size: 1.1rem; margin-top: 1rem;
-        }
+        .max-btn { background: var(--accent); color: var(--primary); font-weight: 700; padding: 0.9rem 2.5rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.8rem; transition: 0.3s; font-size: 1.1rem; margin-top: 1rem; }
         .max-btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
-        .max-icon {
-            background: var(--primary); color: var(--accent); font-weight: 800;
-            width: 36px; height: 36px; border-radius: 10px; display: inline-flex;
-            align-items: center; justify-content: center; font-size: 1rem;
-        }
-        .scroll-top {
-            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            background: var(--accent); color: var(--primary); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
-            z-index: 999; opacity: 0.8;
-        }
+        .max-icon { background: var(--primary); color: var(--accent); font-weight: 800; width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--accent); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; z-index: 999; opacity: 0.8; }
         .scroll-top:hover { opacity: 1; transform: translateY(-3px); }
         footer { background: #111; color: #aaa; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
 
@@ -253,7 +97,7 @@
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 1.8rem; }
             .contact-info a.phone-link { font-size: 1.8rem; }
-            .works-row img { height: 100px; }
+            .review-photo-col img { height: 200px; }
         }
     </style>
 </head>
@@ -273,6 +117,7 @@
     </div>
 </nav>
 
+<!-- Hero с новым фото -->
 <section class="hero">
     <div class="container">
         <h1>Свой человек <br> <span class="city">в Ульяновске</span></h1>
@@ -305,111 +150,13 @@
 <section class="services" id="services">
     <div class="container">
         <h2 class="section-title">Мои услуги</h2>
-        <div class="row g-4" id="serviceCards">
-            <!-- Карточка 1: Юридические -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-gavel"></i></div>
-                        <h5>Юридические и официальные поручения</h5>
-                        <p>Взаимодействие с судебными приставами (снятие арестов с авто)<br>Работа с ГИБДД, МФЦ, налоговой</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="photo1.jpg" alt=""></div>
-                                <div class="col-4"><img src="photo2.jpg" alt=""></div>
-                                <div class="col-4"><img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Остальные карточки с заглушками (позже замените на свои фото) -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-search"></i></div>
-                        <h5>Проверки и экспертиза</h5>
-                        <p>Осмотр недвижимости и автомобилей перед покупкой<br>Проверка контрагентов и компаний<br>Контроль качества товаров и работ</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+авто" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+квартиры" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Проверка+фирмы" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-box-open"></i></div>
-                        <h5>Выкуп и доставка</h5>
-                        <p>Выкуп товаров с Авито и других площадок<br>Курьерская доставка по городу<br>Отправка посылок в другие города</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Выкуп+Авито" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Курьер" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Посылка" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-user-check"></i></div>
-                        <h5>Личные поручения</h5>
-                        <p>Осмотр квартиры, дома, офиса перед арендой<br>Осмотр машины перед покупкой (выезд по городу)<br>Забрать документы, ключи, мелкий груз<br>Проверить помещение, сделать фото/видео по заданию</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Осмотр+жилья" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Документы" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Фотоотчёт" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-car-battery"></i></div>
-                        <h5>Автоуслуги</h5>
-                        <p>Запуск автомобиля с бустера<br>Помощь на дороге, встреча в аэропорту, поездки</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Запуск+с+бустера" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Техпомощь" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Встреча+в+аэропорту" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-main">
-                        <div class="service-icon"><i class="fas fa-truck"></i></div>
-                        <h5>Бытовые перевозки</h5>
-                        <p>Цветы, продукты, стройматериалы, инструмент, крупногабарит. Всё, что входит в мою машину — перевезу чётко и в срок.</p>
-                        <div class="expand-hint"><span>Примеры работ</span> <i class="fas fa-chevron-down"></i></div>
-                        <div class="works-row">
-                            <div class="row g-2">
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Цветы" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Стройматериалы" alt=""></div>
-                                <div class="col-4"><img src="https://via.placeholder.com/400x250/333/ffcc00?text=Крупногабарит" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-gavel"></i></div><h5>Юридические и официальные поручения</h5><p>Взаимодействие с судебными приставами (снятие арестов с авто)<br>Работа с ГИБДД, МФЦ, налоговой</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-search"></i></div><h5>Проверки и экспертиза</h5><p>Осмотр недвижимости и автомобилей перед покупкой<br>Проверка контрагентов и компаний<br>Контроль качества товаров и работ</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-box-open"></i></div><h5>Выкуп и доставка</h5><p>Выкуп товаров с Авито и других площадок<br>Курьерская доставка по городу<br>Отправка посылок в другие города</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-user-check"></i></div><h5>Личные поручения</h5><p>Осмотр квартиры, дома, офиса перед арендой<br>Осмотр машины перед покупкой (выезд по городу)<br>Забрать документы, ключи, мелкий груз<br>Проверить помещение, сделать фото/видео по заданию</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-car-battery"></i></div><h5>Автоуслуги</h5><p>Запуск автомобиля с бустера<br>Помощь на дороге, встреча в аэропорту, поездки</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="fas fa-truck"></i></div><h5>Бытовые перевозки</h5><p>Цветы, продукты, стройматериалы, инструмент, крупногабарит. Всё, что входит в мою машину — перевезу чётко и в срок.</p></div></div>
         </div>
     </div>
 </section>
@@ -418,27 +165,230 @@
     <div class="container">
         <h2 class="section-title">Почему выбирают меня</h2>
         <div class="row g-4">
-            <div class="col-md-4 col-6">
-                <div class="advantage-box">
-                    <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
-                    <h5>Надёжность</h5>
-                    <p>Ответственность и конфиденциальность во всех делах</p>
+            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><h5>Надёжность</h5><p>Ответственность и конфиденциальность во всех делах</p></div></div>
+            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-bolt"></i></div><h5>Скорость</h5><p>Большинство задач выполняю день-в-день</p></div></div>
+            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-hand-holding-usd"></i></div><h5>Доступно</h5><p>Разумные цены, работа по договорённости</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Отзывы с привязанными фото -->
+<section class="reviews-section" id="reviews">
+    <div class="container">
+        <h2 class="section-title">Отзывы</h2>
+        <div class="review-slider">
+            <!-- Отзыв 1 -->
+            <div class="review-slide active">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Обращался за помощью в снятии ареста с авто. Вадим всё решил оперативно, избавил от беготни по инстанциям. Очень доволен!"</p>
+                        <div class="review-author">Андрей В.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="photo1.jpg" alt="Работа">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-6">
-                <div class="advantage-box">
-                    <div class="icon-circle"><i class="fas fa-bolt"></i></div>
-                    <h5>Скорость</h5>
-                    <p>Большинство задач выполняю день-в-день</p>
+            <!-- Отзыв 2 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Понадобилось проверить квартиру перед арендой из другого города. Вадим всё осмотрел, сделал подробные фото и видео. Спасибо!"</p>
+                        <div class="review-author">Екатерина Л.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20241224_083306_IMG_1517#1.jpg" alt="Работа">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-6">
-                <div class="advantage-box">
-                    <div class="icon-circle"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h5>Доступно</h5>
-                    <p>Разумные цены, работа по договорённости</p>
+            <!-- Отзыв 3 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Заказала выкуп товара с Авито, боялась мошенников. Вадим проверил продавца, забрал товар и отправил мне в Казань. Честный человек!"</p>
+                        <div class="review-author">Ольга Н.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20250413_124709_IMG_7310.jpg" alt="Работа">
+                    </div>
                 </div>
             </div>
+            <!-- Отзыв 4 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Срочно нужна была доставка документов в налоговую. Вадим приехал через час, всё отвёз, получил отметку. Очень выручил!"</p>
+                        <div class="review-author">Сергей М.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20250716_153129_7C7CB7B8-6508-447F-BE17-571B5C36C161.JPG" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 5 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Осматривал машину перед покупкой для меня из Ульяновска. Дал честное заключение, указал на скрытые дефекты. Отказался от плохого варианта. Спасибо!"</p>
+                        <div class="review-author">Дмитрий К.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="IMG_20260415_082914_839.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 6 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Запустил машину в мороз с бустера, когда я уже отчаялась. Приехал быстро, всё аккуратно. Рекомендую!"</p>
+                        <div class="review-author">Алина Р.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20251225_093651_IMG_2361.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 7 (крупногабарит) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Перевозил крупногабаритный груз, всё закрепил, доехали без проблем. Вежливый и пунктуальный."</p>
+                        <div class="review-author">Павел И.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 8 (посылка) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Нужно было забрать посылку со склада и отправить в другой город. Вадим оперативно всё организовал, прислал трек-номер."</p>
+                        <div class="review-author">Виктория Д.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="camphoto_1804928587.JPG" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 9 -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Проверял контрагента перед сделкой, собрал информацию, дал рекомендации. Очень полезная услуга для бизнеса."</p>
+                        <div class="review-author">Игорь Б.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 10 (больница) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Попросила отвезти передачу в больницу родственнику. Вадим купил всё по списку и доставил прямо в отделение. Очень благодарна!"</p>
+                        <div class="review-author">Марина Ж.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="photo1.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 11 (участок) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Нужно было проверить участок за городом, скинул координаты. Вадим съездил, сделал фото и видео, оценил состояние дороги. Отличный помощник!"</p>
+                        <div class="review-author">Артём З.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="Screenshot_20260525_105117_YandexMaps.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 12 (цветы) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Заказывал доставку цветов и подарка. Всё привезли вовремя, красиво упаковано. Девушка была в восторге."</p>
+                        <div class="review-author">Николай В.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20251010_162411_IMG_1118.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 13 (МФЦ) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Нужна была помощь в МФЦ, сам не мог вырваться. Вадим сходил, подал документы, получил готовые. Отличный сервис!"</p>
+                        <div class="review-author">Татьяна Г.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 14 (запчасти) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Помог с покупкой запчастей с ульяновского склада, проверил комплектацию и отправил мне. Всё чётко!"</p>
+                        <div class="review-author">Роман Ч.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="photo1.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 15 (офис) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Обратилась для осмотра офиса перед арендой. Вадим сделал замеры, проверил коммуникации, прислал отчёт. Очень удобно."</p>
+                        <div class="review-author">Инна Ф.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="photo2.jpg" alt="Работа">
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 16 (ключи) -->
+            <div class="review-slide">
+                <div class="review-content row g-0">
+                    <div class="col-md-6 review-text-col">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-quote">"Срочно забрал ключи от квартиры у застройщика и передал риелтору. Всё оперативно, без нареканий. Рекомендую!"</p>
+                        <div class="review-author">Георгий Л.</div>
+                    </div>
+                    <div class="col-md-6 review-photo-col">
+                        <img src="20241224_083306_IMG_1517#1.HEIC" alt="Работа">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="prev-review"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-review"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 </section>
@@ -469,22 +419,26 @@
 
 <script>
     (function() {
-        const cards = document.querySelectorAll('.service-card');
-        cards.forEach(card => {
-            const hint = card.querySelector('.expand-hint');
-            if (hint) {
-                hint.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    card.classList.toggle('expanded');
-                });
-            }
-        });
+        const slides = document.querySelectorAll('.review-slide');
+        const prevBtn = document.querySelector('.prev-review');
+        const nextBtn = document.querySelector('.next-review');
+        let current = 0;
 
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.service-card')) {
-                cards.forEach(c => c.classList.remove('expanded'));
-            }
-        });
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+            });
+            nextBtn.addEventListener('click', () => {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            });
+        }
     })();
 </script>
 
