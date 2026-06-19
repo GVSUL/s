@@ -25,7 +25,6 @@
         .navbar .phone-number { color: var(--white); font-weight: 600; font-size: 1.1rem; text-decoration: none; transition: 0.3s; }
         .navbar .phone-number:hover { color: var(--accent); }
 
-        /* Hero без фоновой картинки — только тёмный градиент */
         .hero {
             background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%);
             color: var(--white);
@@ -64,9 +63,8 @@
         .advantage-box h5 { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
         .advantage-box p { color: #555; font-size: 0.95rem; }
 
-        /* ОТЗЫВЫ — увеличенные фото */
         .reviews-section { padding: 4rem 0; background: var(--white); }
-        .review-slider { max-width: 1000px; margin: 0 auto; } /* чуть шире */
+        .review-slider { max-width: 1000px; margin: 0 auto; }
         .review-slide { display: none; }
         .review-slide.active { display: block; }
         .review-content { background: var(--white); border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; overflow: hidden; }
@@ -75,12 +73,7 @@
         .review-quote { font-size: 1rem; color: #555; line-height: 1.6; margin-bottom: 1rem; font-style: italic; }
         .review-author { font-weight: 700; color: var(--primary); }
         .review-photo-col { padding: 0; }
-        .review-photo-col img {
-            width: 100%;
-            height: 400px; /* было 250px */
-            object-fit: cover;
-            display: block;
-        }
+        .review-photo-col img { width: 100%; height: 400px; object-fit: cover; display: block; }
         .slider-controls { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
         .slider-controls button { background: var(--accent); border: none; color: var(--primary); font-size: 1.2rem; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .slider-controls button:hover { background: var(--primary); color: var(--accent); }
@@ -100,7 +93,7 @@
             .hero h1 { font-size: 2rem; }
             .section-title { font-size: 1.8rem; }
             .contact-info a.phone-link { font-size: 1.8rem; }
-            .review-photo-col img { height: 300px; } /* на мобильных тоже увеличил */
+            .review-photo-col img { height: 300px; }
         }
     </style>
 </head>
@@ -120,7 +113,6 @@
     </div>
 </nav>
 
-<!-- Hero без картинки -->
 <section class="hero">
     <div class="container">
         <h1>Свой человек <br> <span class="city">в Ульяновске</span></h1>
@@ -168,14 +160,31 @@
     <div class="container">
         <h2 class="section-title">Почему выбирают меня</h2>
         <div class="row g-4">
-            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><h5>Надёжность</h5><p>Ответственность и конфиденциальность во всех делах</p></div></div>
-            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-bolt"></i></div><h5>Скорость</h5><p>Большинство задач выполняю день-в-день</p></div></div>
-            <div class="col-md-4 col-6"><div class="advantage-box"><div class="icon-circle"><i class="fas fa-hand-holding-usd"></i></div><h5>Доступно</h5><p>Разумные цены, работа по договорённости</p></div></div>
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+                    <h5>Надёжно</h5>
+                    <p>Ответственность и конфиденциальность во всех делах</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-bolt"></i></div>
+                    <h5>Быстро</h5>
+                    <p>Большинство задач выполняю день-в-день</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="advantage-box">
+                    <div class="icon-circle"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h5>Доступно</h5>
+                    <p>Разумные цены, работа по договорённости</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Отзывы с увеличенными фото -->
 <section class="reviews-section" id="reviews">
     <div class="container">
         <h2 class="section-title">Отзывы</h2>
@@ -284,7 +293,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 9 -->
+            <!-- Отзыв 9 (контрагент) - новое фото -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
@@ -293,11 +302,11 @@
                         <div class="review-author">Игорь Б.</div>
                     </div>
                     <div class="col-md-6 review-photo-col">
-                        <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Работа">
+                        <img src="Screenshot_20260509_125842.jpg" alt="Работа">
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 10 (больница) -->
+            <!-- Отзыв 10 (больница) - новое фото -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
@@ -306,7 +315,7 @@
                         <div class="review-author">Марина Ж.</div>
                     </div>
                     <div class="col-md-6 review-photo-col">
-                        <img src="photo1.jpg" alt="Работа">
+                        <img src="20260618_142639.jpg" alt="Работа">
                     </div>
                 </div>
             </div>
@@ -336,7 +345,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 13 (МФЦ) -->
+            <!-- Отзыв 13 (МФЦ) - новое фото -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
@@ -345,11 +354,11 @@
                         <div class="review-author">Татьяна Г.</div>
                     </div>
                     <div class="col-md-6 review-photo-col">
-                        <img src="1.UPoRvLasbnaln-qRqIUQui_Q_xGn.wD-1G-SWGpgo0CqXSPYwk2jUMEc0ulo-wkOpl0HLzDY (1).jpeg" alt="Работа">
+                        <img src="20260527_135951.jpg" alt="Работа">
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 14 (запчасти) -->
+            <!-- Отзыв 14 (запчасти) - новое фото -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
@@ -358,11 +367,11 @@
                         <div class="review-author">Роман Ч.</div>
                     </div>
                     <div class="col-md-6 review-photo-col">
-                        <img src="photo1.jpg" alt="Работа">
+                        <img src="WhatsApp Iывавыаmage 2025-11-22 at 11.56.16 копия.jpg" alt="Работа">
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 15 (офис) -->
+            <!-- Отзыв 15 (офис) - новое фото -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
@@ -371,11 +380,11 @@
                         <div class="review-author">Инна Ф.</div>
                     </div>
                     <div class="col-md-6 review-photo-col">
-                        <img src="photo2.jpg" alt="Работа">
+                        <img src="20260611_113326.jpg" alt="Работа">
                     </div>
                 </div>
             </div>
-            <!-- Отзыв 16 (ключи) -->
+            <!-- Отзыв 16 (ключи) - без изменений -->
             <div class="review-slide">
                 <div class="review-content row g-0">
                     <div class="col-md-6 review-text-col">
